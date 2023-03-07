@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign up</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="signup-box">
+		<h1>Sign Up / Register</h1>
+<form method="post" name="google-sheet">
+	<table>
+		<tr>
+			<td>
+				Username:
+			</td>
+			<td>
+				<input type="text" placeholder="Username" name="Username">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Password:
+			</td>
+			<td>
+				<input type="Password" placeholder="Password" name="Password">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Institute:
+			</td>
+			<td>
+				<input type="text" placeholder="University/College" name="Institute"> 
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Student ID: 
+			</td>
+			<td>
+				<input type="text" placeholder="Enrollment Number" name="ID">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Phone :
+			</td>
+			<td>
+				<select>
+					<option>+91</option>
+				</select>
+				<input type="Phone" placeholder="98765*****" name="Phone">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Email ID:
+			</td>
+			<td>
+				<input type="mail" placeholder="Email" name="Email">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="Submit" value="Submit" name="">
+			</td>
+		</tr>
+	</table>
+<p>Aready have an account? <a href="Login.html">Login</a></p>
+</div>
+		<script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyBroA-qF82JWFLpwh3yVpdn4GSR44igw5dxOe7qwXTmVQCjuhlJfREwi1m27RsA71i/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Yay! You have now been registered. Please Login to continue."))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+</form>
+</body>
+</html>
